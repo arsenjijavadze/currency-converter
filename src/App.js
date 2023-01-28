@@ -8,13 +8,11 @@ import './index.scss';
 
 function App() {
 
-  const [rates, setRates] = React.useState({});
   const [from, setFrom] = React.useState('USD');
   const [to, setTo] = React.useState('EUR');
   const [fromPrice, setFromPrice] = React.useState(0);
   const [toPrice, setToPrice] = React.useState(0);
 
-  // getCurrency('USD', 'EUR');
 
   const onChangeFromPrice = (value) => {
     setFromPrice(value);
@@ -33,9 +31,8 @@ function App() {
 
     request.onload = function () {
       var response = request.response;
-      //console.log(response.result);
-      setToPrice(amount * response.result);
-      return response.result;
+      setToPrice(+(amount * response.result).toFixed(2));
+
     }
   }
 
@@ -49,12 +46,14 @@ function App() {
         currency={from}
         onChangeCurrency={setFrom}
         onChangeValue={onChangeFromPrice}
+        type={'number'}
       />
       <Block
         value={toPrice}
         currency={to}
         onChangeCurrency={setTo}
-        onChangeValue={getCurrency}
+        onChangeValue={onChangeToPrice}
+        type={'text'}
       />
     </div>
   );

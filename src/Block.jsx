@@ -2,7 +2,7 @@ import React from 'react';
 
 const defaultCurrencies = ['USD', 'EUR', 'GBP'];
 
-export const Block = ({ value, currency, onChangeValue, onChangeCurrency }) => (
+export const Block = ({ value, currency, onChangeValue, onChangeCurrency, type }) => (
     <div className="block">
         <ul className="currencies">
             {defaultCurrencies.map((cur) => (
@@ -21,9 +21,10 @@ export const Block = ({ value, currency, onChangeValue, onChangeCurrency }) => (
             </li>
         </ul>
         <input
+            inputMode="numeric"
             onChange={(e) => onChangeValue(e.target.value)}
             value={value}
-            type="number"
+            type={type}
             placeholder={0}
         />
 
