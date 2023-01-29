@@ -1,7 +1,7 @@
-# Currency Convertor App
+# Currency Converter App
 <img src="./preview.png" width="600">
 
-This is the solution to the Currency Conventor App
+This is the solution to the Currency Conventer App
 
 #### Links
 
